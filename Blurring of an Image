@@ -1,3 +1,5 @@
+#with function
+
 import cv2
 import numpy as np
 image = cv2.imread('2-500x250-2.jpg')
@@ -14,5 +16,36 @@ cv2.imshow('Gaussian Blurring', Gaussian)
 cv2.imshow('Median Blurring', median)
 cv2.imshow('Normalized Blur', Blur)
 cv2.imshow('Bilateral Blurring', bilateral)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+#without function
+
+image = cv2.imread('bus.png')
+cv2.imshow('original', image)
+
+# making filter of 3 by 3 filled with 1 divide
+# by 9 for normalization
+blur_filter1 = np.ones((3, 3), np.float)/(9.0)
+
+# making filter of 5 by 5 filled with 1 divide
+# by 25 for normalization
+blur_filter2 = np.ones((5, 5), np.float)/(25.0)
+
+# making filter of 7 by 7 filled with 1 divide
+# by 49 for normalization
+blur_filter3 = np.ones((7, 7), np.float)/(49.0)
+
+image_blur1 = cv2.filter2D(image, -1, blur_filter1)
+cv2.imshow('blur1', image_blur1)
+cv2.waitKey(0)
+
+image_blur2 = cv2.filter2D(image, -1, blur_filter2)
+cv2.imshow('blur2', image_blur2)
+cv2.waitKey(0)
+
+image_blur3 = cv2.filter2D(image, -1, blur_filter3)
+cv2.imshow('blur3', image_blur3)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
