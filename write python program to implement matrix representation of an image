@@ -1,0 +1,12 @@
+import cv2
+import numpy as np
+import pandas as pd
+#read the image using openCV
+img=cv2.imread("rose1.png")
+#print image properties
+print(img.shape)
+#convert the image to a matrix representation
+matrix=np.array(img)
+#print matrix representation
+print("\n matrix representation of the image:")
+print(matrix)
